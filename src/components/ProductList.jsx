@@ -3,9 +3,6 @@ import Grid from '@mui/material/Grid';
 import CameraCard from "./cameraCard";
 
 
-
-
-
 const ProductList = ({products})=> {
   return (
      <Grid container className="camerass">
@@ -15,6 +12,8 @@ const ProductList = ({products})=> {
   </Grid>    
   );
 }
+
+
 
 export default ProductList
 
