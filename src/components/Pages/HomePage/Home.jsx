@@ -1,21 +1,20 @@
 
 import React from 'react';
-import '../App.css';
-import Footer from '../components/footer';
-import Header from '../components/header';
-import SectionFour from '../components/SecctionFour';
-import SectionOne from '../components/sectionOne';
-import SectionThree from '../components/sectionThree';
-import SectionTwo from '../components/sectionTwo';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import Header from '../Header';
+import SectionOne from './sectionOne';
+import SectionTwo from './SectionTwo';
+import SectionThree from './sectionThree';
+import SectionFour from './SecctionFour';
 import SectionFive from './sectionFive';
+import Footer from '../Footer';
+import '../../../App.css';
+
 
 const Home = () => {
   return (
-  
-    
-    <Grid container>
+  <Grid container>
     <Container >
     <Header/>
     <SectionOne/>
@@ -25,7 +24,7 @@ const Home = () => {
     <SectionFive/>
     <Footer/>
     </Container>
-    </Grid>
+  </Grid>
     
   );
 }

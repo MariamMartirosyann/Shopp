@@ -1,7 +1,5 @@
 import React from "react";
-import Cameras from "./cameras";
-
-
+import Cameras from "../ShopPage/Cameras";
 
 
 const SectionFour = () => {

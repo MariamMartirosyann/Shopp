@@ -1,7 +1,7 @@
 import React,{ useEffect } from "react"
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectValue } from "../redux/slices/counter";
+import { selectValue } from "../../../redux/slices/counter";
 
   
       

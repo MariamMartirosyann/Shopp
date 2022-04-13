@@ -318,17 +318,89 @@ align-items: center;
     color: var(--color2);
     margin: 50px;
 }
+/*```````````````````````````````````````````````````````````CameraCard Element``````````````````````````````````````````````````*/
 .cameras{
     display: flex;
     flex-direction: row;
     justify-content: center;
     
 }
+
+.hovered-image {
+    display: none;
+}
+
 .camera-cards,.simbol{
     
     color: var(--color2);
     height: 100%;
 }
+
+.camera-cards:hover .btn2QuiekView {
+    visibility: visible;
+
+}
+.btn2QuiekView:hover{
+    opacity: .5;
+    }
+    
+
+.camera-cards:hover .btnQuiekView {
+    opacity: .5;
+    animation:quikView .2s linear ;
+}
+@keyframes quikView{
+    0%{
+        opacity: 0;
+        bottom:100px;
+    }
+    50%{
+        opacity: .25;
+        bottom:105px ;  
+     }
+    100%{
+        opacity: .5;
+        bottom:110px ; 
+       
+    }
+}
+.camera-cards:hover .hovered-image {
+    display: block;
+}
+.camera-cards:hover .main-image {
+    display: none;
+}
+
+
+.camera-cards{
+    position: relative;
+}
+.camera-cards:hover{
+    cursor: pointer;   
+}
+
+
+.btnQuiekView{
+    position: absolute;
+    bottom: 110px;
+    right: "20px";
+    background-color: white;
+    opacity: 0;
+    margin: 3px ;
+    padding: 20px 65px;
+    text-align: center;
+}
+.btn2QuiekView{
+    visibility: hidden;
+    width: 90%;
+    color: beige;
+    background: var(--color1);
+    padding:10px 0;
+    margin: 10px 2px;
+    border: transparent;
+    
+}
+
 .new{
     background: var(--color1);
     width: 70px;

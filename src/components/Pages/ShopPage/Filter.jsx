@@ -9,19 +9,47 @@ import Slider from '@mui/material/Slider';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import "../App.css"
+import "../../../App.css"
 
 
-const Brands=[{lable:"Robust"},{lable:"Tipox"},{lable:"Primo"},{lable:"Excipia"}]
+const Brands=[{label:"Robust",id:1},{label:"Tipox",id:2},{label:"Primo",id:3},{label:"Excipia",id:4}]
 
-const Colections =[{name:"Digital Cameras"}, {name:"Lenses & Accessories"}]
+const collections =[{name:"All", id:"All"},{name:"Digital Cameras",id:1}, {name:"Lenses & Accessories",id:2}]
 
-
-const Filter = () => {
+const Filter = ({filters, onChange}) => {
     const [price, setPrice] = React.useState([30000,830000]);
-    const handleChange = (event, newPrice) => {
+
+
+    const handleChangePrice = (event, newPrice) => {
       setPrice(newPrice);
       };
+
+
+    const handleChangeCollection = (collectionId) => {
+      const newFilters = {
+        collectionId,
+      }
+
+      onChange(newFilters)
+    }
+    
+
+    const handleChangeBrand = (brandId) => {
+      if(filters.brandId.includes(brandId)) {
+        return onChange({
+          ...filters,
+          brandId: filters.brandId.filter(item => item !== brandId)
+        })
+      };
+     
+      return onChange({
+        ...filters,
+        brandId: [...filters.brandId, brandId]
+      })
+    }
+    
+    const handleChangPrice = () => {}
+
       function pricetext(price) {
         return `${price} AMD`;
       }
@@ -45,10 +73,10 @@ const Filter = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography component={"p"}  variant="body2">
-           <strong>All</strong>
+          
            </Typography>
           {
-            Colections?Colections.map(i=><Typography component={"p"} key={i.name} variant="body2">
+            collections ? collections.map(i=> <Typography onClick={() => handleChangeCollection(i.id)} component={"p"} key={i.id} variant="body2">
                         {i.name}
               </Typography>):null
 
@@ -56,7 +84,10 @@ const Filter = () => {
           
         </AccordionDetails>
       </Accordion>
+      
       <Accordion>
+  
+      
         <AccordionSummary
           expandIcon={<AddIcon />}
           aria-controls="panel1a-content"
@@ -67,11 +98,13 @@ const Filter = () => {
         <AccordionDetails>
         <Slider
         getAriaLabel={() => 'Price range'}
-        value={"price"}
-        onChange={handleChange}
+        value={price}
+        onChange={handleChangePrice}
         valueLabelDisplay="auto"
         getAriaValueText={pricetext}
         style={{color:'string'}}
+        min={30000}
+        max={830000}
       />
         </AccordionDetails>
       </Accordion>
@@ -89,7 +122,8 @@ const Filter = () => {
           <Typography >
           <FormGroup>
             {
-              Brands?Brands.map(i =><FormControlLabel  control={<Checkbox  />} label={i.lable} key={i.lable} />):null
+              Brands ? Brands.map(i =><FormControlLabel  control={<Checkbox onChange={() =>handleChangeBrand(i.id)} />} label={i.label} key={i.id} />):null
+              
             }
      
     </FormGroup>

@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import { useSelector,useDispatch } from "react-redux";
-import  { increment, decrement, incrementByAmount,selectValue }  from '../redux/slices/counter'
+import  { increment, decrement, incrementByAmount,selectValue }  from '../../../redux/slices/counter'
 
 const SectionOne = () =>{
   const dispatch = useDispatch();

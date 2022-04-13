@@ -1,7 +1,7 @@
 import React from "react";
-import '../App.css';
-import mc  from "../img/mc.webp"
-import vs from "../img/vs.webp"
+import '../../App.css';
+import mc  from "../../img/mc.webp"
+import vs from "../../img/vs.webp"
 
 
 

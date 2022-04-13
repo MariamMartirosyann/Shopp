@@ -17,13 +17,6 @@ const MenuProps = {
   },
 };
 
-const names = [
-  'Newest',
-  'Price(low to high)',
-  'Price(high to low)',
-  'Name A-Z',
-  'Name Z-A',
-];
 
 const options = [{
   name: "Newest",

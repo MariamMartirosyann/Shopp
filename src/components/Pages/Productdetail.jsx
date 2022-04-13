@@ -1,91 +1,30 @@
+
 import React from 'react';
-import Grid from '@mui/material/Grid'
-import kamera from "../img/kamera.jpg"
-import kamera2 from "../img/kamera2.webp";
-import kamera3 from "../img/kamera3.webp";
-import kamera4 from "../img/camera4.webp";
- import camera from "../img/1.webp";
- import camera11 from "../img/11.webp";
- import camera2 from "../img/2.webp";
- import camera3 from "../img/3.webp";
- import camera4 from "../img/4.webp";
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import  Typography  from '@mui/material/Typography';
+import Grid from '@mui/material/Grid'
+import Typography  from '@mui/material/Typography';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { useSelector } from 'react-redux';
+import { selecActivetProduct } from '../../redux/slices/products';
+import '../../App.css';
 
 
 
+function ProductDetail(){
+  const props = useSelector(selecActivetProduct);
 
-
-
-const items = [
-  {
-    id:1,
-    title:"I'm a Product",
-    name: "Kamera",
-    price: 360000,
-    src: camera,
-    SKU: "0001",
-  },
-  {
-    name: "Kamera 2",
-    price: 830000,
-    src: camera2
-  },
-  {
-    name: "Kamera 3",
-    price: 830000,
-    src: camera3
-  },{
-    name: "Kamera 3",
-    price: 390000,
-    src: kamera4
-  },{
-    name: "Kamera 3",
-    price: 130000,
-    src: camera4
-  },
-
-  {
-    name: "Kamera",
-    price: 30000,
-    src: kamera
-  },
-  {
-    name: "Kamera 2",
-    price: 30000,
-    src: kamera2
-  },
-  {
-    name: "Kamera 3",
-    price: 30000,
-    src: kamera3
-  },{
-    name: "Kamera 3",
-    price: 30000,
-    src: kamera3
-  },{
-    name: "Kamera 3",
-    price: 30000,
-    src: kamera3
-  }
-]
-
-
-
-const CameraDetailsList=()=> {
-  return (
-     <Grid container style={{margin:"10px"}}>
+    return (
+      <Grid container style={{margin:"10px"}}>
       <Grid item xs={6}>
-        <Grid ><img src={camera} alt="camera" className='detailPhoto'/></Grid>
+        <Grid ><img src={props.src} alt="camera" className='detailPhoto'/></Grid>
       <Grid container>
-       <Grid ><img src={camera} alt="camera" className='detailPhoto2'/></Grid>
-       <Grid ><img src={camera11} alt="camera" className='detailPhoto2'/></Grid><br/>
+       <Grid ><img src={props.src} alt="camera" className='detailPhoto2'/></Grid>
+       <Grid ><img src={props.srcMain} alt="camera1" className='detailPhoto2'/></Grid><br/>
        <Box ><Typography variant='p' component={"body2"}  sx={{marginTop:"10px"}}>I'm a product description. I’m a great place to include more information about your product. Buyers like to know what they’re getting before they purchase.</Typography></Box>
       </Grid>
 
@@ -93,13 +32,13 @@ const CameraDetailsList=()=> {
       
       
     <Grid item xs={6}  style={{marginTop:"60px"}}>
-    <Box><Typography component={'h6'} variant="h4">I'm a Product
+    <Box><Typography component={'h6'} variant="h4">{props.name}
     </Typography></Box><br/>
     <Box>
-      <Typography component={"h6"}>SKU: 0001</Typography>
+      <Typography component={"h6"}>SKU: 0005</Typography>
     </Box><br/>
     <Box>
-      <Typography component={"h6"}>$19.99</Typography>
+      <Typography component={"h6"}>${props.price}</Typography>
     </Box><br/>
     <Box>
       <Typography component={"h6"}>Quantity</Typography>
@@ -142,10 +81,7 @@ const CameraDetailsList=()=> {
      
   </Box>
 </Grid>
-
-    </Grid>    
-  );
-}
-
-export default CameraDetailsList
-
+</Grid>)
+    
+  }
+  export default ProductDetail

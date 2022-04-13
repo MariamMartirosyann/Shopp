@@ -1,10 +1,10 @@
 import React from "react";
-import '../App.css';
-import sh1 from "../img/sh1.webp"
-import sh2 from "../img/sh2.webp"
-import sh3 from "../img/sh3.webp"
-import sh4 from "../img/sh4.webp"
-import sh5 from "../img/sh5.webp"
+import '../../../../src/App.css';
+import sh1 from "../../../img/sh1.webp";
+import sh2 from "../../../img/sh2.webp";
+import sh3 from "../../../img/sh3.webp";
+import sh4 from "../../../img/sh4.webp";
+import sh5 from "../../../img/sh5.webp";
 
 
 const pictures= [
@@ -30,7 +30,6 @@ const SectionFive = () => {
     return (
     
       <div>
-       
         <div className="line"></div>
         <div className="shops">
             
@@ -38,7 +37,6 @@ const SectionFive = () => {
                 pictures? pictures.map(i=><div className={i.className}><img key={i.id} src={i.src} alt=""/></div>): null
             }
         </div>
-        
       
       </div>
     );

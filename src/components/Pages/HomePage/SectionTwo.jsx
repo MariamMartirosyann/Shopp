@@ -1,5 +1,5 @@
 import React from "react";
-import kamera from "../img/kamera.webp";
+import kamera from "../../../img/kamera.webp";
 
 
 

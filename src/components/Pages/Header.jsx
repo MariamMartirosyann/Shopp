@@ -1,6 +1,6 @@
 import React from 'react';
-import Logo from './logo';
-import Navbar from './navbar';
+import Logo from './HeaderComponent/Logo';
+import Navbar from './HeaderComponent/Navbar';
 
 
 
@@ -10,7 +10,6 @@ const Header = () => {
     <div>
     <Logo/>
     <Navbar/>
-
     </div>
   );
 }
