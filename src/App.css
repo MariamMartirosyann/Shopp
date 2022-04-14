@@ -362,7 +362,7 @@ align-items: center;
      }
     100%{
         opacity: .5;
-        bottom:110px ; 
+        bottom:105px ; 
        
     }
 }
@@ -385,7 +385,7 @@ align-items: center;
 .btnQuiekView{
     position: absolute;
     width: 100%;
-    bottom: 110px;
+    bottom: 105px;
     background-color: white;
     opacity: 0;
     padding: 20px 0;
@@ -612,3 +612,9 @@ color: var(--color1);
     width: 100px;
     height: 100px;
 }
+
+
+
+
+
+
