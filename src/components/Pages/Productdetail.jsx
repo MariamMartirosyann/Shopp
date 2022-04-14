@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React,{ useState }from 'react';
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -16,6 +16,12 @@ import '../../App.css';
 
 
 function ProductDetail(){
+
+const[clicked,setClicked] = useState(true)
+  const hundleClick = ()=>{
+
+  }
+
   const props = useSelector(selecActivetProduct);
 
     return (
@@ -24,7 +30,7 @@ function ProductDetail(){
         <Grid ><img src={props.src} alt="camera" className='detailPhoto'/></Grid>
       <Grid container>
        <Grid ><img src={props.src} alt="camera" className='detailPhoto2'/></Grid>
-       <Grid ><img src={props.srcMain} alt="camera1" className='detailPhoto2'/></Grid><br/>
+       <Grid ><img src={props.srcMain} onClick={hundleClick} alt="camera1" className='detailPhoto2'/></Grid><br/>
        <Box ><Typography variant='p' component={"body2"}  sx={{marginTop:"10px"}}>I'm a product description. I’m a great place to include more information about your product. Buyers like to know what they’re getting before they purchase.</Typography></Box>
       </Grid>
 

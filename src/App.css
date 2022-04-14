@@ -329,7 +329,9 @@ align-items: center;
 .hovered-image {
     display: none;
 }
-
+.camera-cards{
+    margin: 5px;
+}
 .camera-cards,.simbol{
     
     color: var(--color2);
@@ -352,11 +354,11 @@ align-items: center;
 @keyframes quikView{
     0%{
         opacity: 0;
-        bottom:100px;
+        bottom:70px;
     }
     50%{
         opacity: .25;
-        bottom:105px ;  
+        bottom:90px ;  
      }
     100%{
         opacity: .5;
@@ -382,17 +384,17 @@ align-items: center;
 
 .btnQuiekView{
     position: absolute;
+    width: 100%;
     bottom: 110px;
-    right: "20px";
     background-color: white;
     opacity: 0;
-    margin: 3px ;
-    padding: 20px 65px;
+    padding: 20px 0;
     text-align: center;
+   align-items: center;
 }
 .btn2QuiekView{
     visibility: hidden;
-    width: 90%;
+    width: 100%;
     color: beige;
     background: var(--color1);
     padding:10px 0;
@@ -434,9 +436,11 @@ align-items: center;
     width: 100%;
 }
 .camera-cards img{
-    width: 230px;
+    width: 200px;
+   
     
 }
+
 footer{
     margin-top: 50px;
 }
