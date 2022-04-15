@@ -47,7 +47,7 @@ function ProductDetail() {
     <>
     <Header/>
     
-    <Grid container style={{margin:"50px",color:"grey", justifyContent: "space-between"}} >
+    <Grid container style={{margin:"50px",color:"grey", justifyContent: "space-between", }} >
       <Grid item xs={3}> 
       <Typography component={"p"} variant={"body2"} style={{textDecoration: 'none'}}>
         <Link  style={{ textDecoration: 'none',color:"black"}} to="/">Home</Link> / <Link  style={{ textDecoration: 'none',color:"black" }} to="/shop">Shop</Link> / I a Product</Typography>
@@ -59,7 +59,7 @@ function ProductDetail() {
    
       </Grid>
     </Grid>
-    <Grid container style={{ margin: "10px" }}>
+    <Grid container style={{ margin: "10px",}}  spacing={2}>
       <Grid item xs={6} >
         <Grid>
           <img src={selectedImg} on alt="camera" className="detailPhoto" />
@@ -85,7 +85,7 @@ function ProductDetail() {
         </Grid>
       </Grid>
 
-      <Grid item xs={6} style={{ marginTop: "60px", }}>
+      <Grid item xs={6} >
         <Box>
           <Typography component={"h6"} variant="h4">
             {props.name}
