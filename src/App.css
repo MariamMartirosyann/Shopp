@@ -617,6 +617,23 @@ div.main-bannerf-p {
     margin-top: -235px;
     margin-left: 40px;
   }
+  .inputSerach2{
+    position: absolute;
+     left: 20%;
+    bottom: 52px;
   
-
-  
+  }
+  .show{
+    visibility: visible;
+  }
+  .hide{
+    visibility: hidden;
+  }
+  .close{
+    position: absolute;
+    right:0%;
+    bottom: 12px;
+    margin-right: 15px;
+   
+ 
+  }

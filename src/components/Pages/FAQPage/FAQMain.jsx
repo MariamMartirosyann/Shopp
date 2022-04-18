@@ -11,21 +11,31 @@ import { makeStyles } from "@mui/styles";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import FormControl from "@mui/material/FormControl";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import CloseIcon from "@mui/icons-material/Close";
 
 const useStyles = makeStyles({
   accardion: {
     border: "transparent",
     boxShadow: "none",
   },
+  closeColor: {
+    border: "blue",
+  },
 });
 
 const FAQMain = () => {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = useState(false);
+
+  const [isToggled, setisToggled] = useState(true);
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
+
+  const handleToggle = () => setisToggled(!isToggled)
 
   return (
     <>
@@ -52,24 +62,44 @@ const FAQMain = () => {
             marginY: "7.5rem",
           }}
         >
-          <Grid container style={{ textAlign: "center" }}>
-            <Grid item xs={10}>
-              <span>
-                <Typography
-                  component={"body2"}
-                  variant={"h4"}
-                  style={{ fontWeight: "normal" }}
-            
-                >
-                  Frequently asked questions
-                </Typography>
-              </span>
+          {isToggled ? (
+            <Grid container style={{ textAlign: "center" }}>
+              <Grid item xs={10}>
+                <span>
+                  <Typography
+                    component={"body2"}
+                    variant={"h4"}
+                    style={{ fontWeight: "normal" }}
+                  >
+                    Frequently asked questions
+                  </Typography>
+                </span>
+              </Grid>
+              <Grid item xs={2}>
+                {" "}
+                <SearchIcon onClick={handleToggle} />
+              </Grid>
             </Grid>
-            <Grid item xs={2}>
-              {" "}
-              <SearchIcon />
+          ) : (
+            <Grid
+              container
+              style={{ justifyContent: "center" }}
+             
+            >
+              <SearchIcon onClick={handleToggle} className="inputSerach2" />
+              <FormControl>
+                <OutlinedInput
+                  sx={{ width: "800px", height: "40px", margin: "5px" }}
+                  placeholder="     Looking for something?"
+                />
+                <div className="close">
+                  {" "}
+                  <CloseIcon className={classes.closeColor} onClick={handleToggle}/>
+                </div>
+              </FormControl>
             </Grid>
-          </Grid>
+          )}
+
           <Grid container style={{ margin: "2rem 5rem" }}>
             <Grid container>
               {" "}
@@ -116,8 +146,12 @@ const FAQMain = () => {
                     <LinkedInIcon style={{ margin: "3px" }} />
                   </Typography>
                 </AccordionDetails>
-              </Accordion >
-              <Accordion className={classes.accardion} expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+              </Accordion>
+              <Accordion
+                className={classes.accardion}
+                expanded={expanded === "panel2"}
+                onChange={handleChange("panel2")}
+              >
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel2a-content"
@@ -133,7 +167,11 @@ const FAQMain = () => {
                   </Typography>
                 </AccordionDetails>
               </Accordion>
-              <Accordion className={classes.accardion} expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+              <Accordion
+                className={classes.accardion}
+                expanded={expanded === "panel3"}
+                onChange={handleChange("panel3")}
+              >
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel3a-content"
