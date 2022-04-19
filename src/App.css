@@ -611,29 +611,45 @@ div.main-bannerf-p {
   font-weight: normal;
 }
 .border-onef {
-    border: 2px solid var(--color1);
-    width: 902px;
-    height:650px;
-    margin-top: -235px;
-    margin-left: 40px;
+  border: 2px solid var(--color1);
+  width: 902px;
+  height: 700px;
+  margin-top: -235px;
+  margin-left: 40px;
+}
+.inputSerach2 {
+  position: absolute;
+  left: 20%;
+  bottom: 54px;
+}
+.inputAnimation {
+
+  animation: inputComing .7s linear;
+}
+@keyframes inputComing {
+  0%{
+    
+    width: 400px;
   }
-  .inputSerach2{
-    position: absolute;
-     left: 20%;
-    bottom: 52px;
-  
+  50%{
+    
+    width: 600px;
   }
-  .show{
-    visibility: visible;
-  }
-  .hide{
-    visibility: hidden;
-  }
-  .close{
-    position: absolute;
-    right:0%;
-    bottom: 12px;
-    margin-right: 15px;
-   
  
+  100%{
+    
+    width: 800px;
   }
+}
+.show {
+  visibility: visible;
+}
+.hide {
+  visibility: hidden;
+}
+.close {
+  position: absolute;
+  right: 0%;
+  bottom: 12px;
+  margin-right: 15px;
+}
