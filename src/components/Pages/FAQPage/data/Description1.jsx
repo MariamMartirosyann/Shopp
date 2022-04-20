@@ -16,6 +16,7 @@ return(
                           Each question and answer should be added to a category
                         </li>
                         <li>Save and publish.</li>
+                        <li>Save and publish.</li>
                       </ol>
                     
                     </Typography>
