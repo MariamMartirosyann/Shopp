@@ -9,12 +9,10 @@ const CameraCard=(props)=> {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-   
+
  const hundleClick= ()=> {
-  dispatch(setActiveProduct(props));
-  navigate(`/products/${props.id}`,{state: {
-    ...props.links
-  }});
+  dispatch(setActiveProduct(props.id));
+  navigate(`/products/${props.id}`);
  }
 
  

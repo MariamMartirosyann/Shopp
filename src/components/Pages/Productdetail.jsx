@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
@@ -11,8 +11,8 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { useSelector } from "react-redux";
-import { selecActivetProduct } from "../../redux/slices/products";
+import { useDispatch, useSelector } from "react-redux";
+import { selectActiveProduct,selectProducts,setActiveProduct } from "../../redux/slices/products";
 import { makeStyles } from "@mui/styles";
 import Header from "./Header";
 
@@ -35,14 +35,37 @@ const images = [
 ];
 
 function ProductDetail() {
-  const location = useLocation()
+  const location = useLocation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const classes = useStyles();
   const [selectedImg, setSelectedImg] = useState(images[0].path);
-  const props = useSelector(selecActivetProduct);
-  console.log(location)
+  const activeProductId = useSelector(selectActiveProduct);
+  const productsList = useSelector(selectProducts);
   const handleChangeImage = (imagePath) => {
     setSelectedImg(imagePath);
   };
+
+  const activeProduct = productsList?.find(product => product.id === activeProductId)
+
+  const links = {
+    prevId: productsList[activeProductId - 1]?.id,
+    nextId: productsList[activeProductId + 1]?.id
+  }
+
+  const handleNavigatePrev = () => {
+    if(links?.prevId){
+      dispatch(setActiveProduct(links.prevId));
+      navigate(`/products/${links?.prevId}`)
+    }
+  }
+
+  const handleNavigateNext = () => {
+    if(links?.nextId){
+      dispatch(setActiveProduct(links?.nextId));
+      navigate(`/products/${links?.nextId}`)
+    }
+  }
 
   return (
     <>
@@ -83,15 +106,31 @@ function ProductDetail() {
           }}
         >
           <ChevronLeftIcon />
-
+          {links?.prevId && 
           <Typography
+            onClick={handleNavigatePrev}
             component={"p"}
             variant={"body2"}
             style={{ textDecoration: "none",margin:"0", padding:"0"
            }}
           >
-            Prev | Next
-          </Typography>
+            Prev 
+          </Typography>}
+         
+              |
+            {
+              links?.nextId && 
+              <Typography
+                onClick={handleNavigateNext}
+                component={"p"}
+                variant={"body2"}
+                style={{ textDecoration: "none",margin:"0", padding:"0"
+              }}
+              >
+                Next
+              </Typography>
+            }
+         
 
           <ChevronRightIcon />
         </Grid>
@@ -125,7 +164,7 @@ function ProductDetail() {
         <Grid item xs={6}>
           <Box>
             <Typography component={"h6"} variant="h4">
-              {props.name}
+              {activeProduct?.name}
             </Typography>
           </Box>
           <br />
@@ -134,7 +173,7 @@ function ProductDetail() {
           </Box>
           <br />
           <Box>
-            <Typography component={"h6"}>${props.price}</Typography>
+            <Typography component={"h6"}>${activeProduct?.price}</Typography>
           </Box>
           <br />
           <Box>

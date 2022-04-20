@@ -4,7 +4,7 @@ const name = "ProductList";
 
 const initialState = {
   products: cameraList,
-  activeProduct: cameraList[0]
+  activeProduct: cameraList[0]?.id
 }
 
 const productsSlice = createSlice({
@@ -18,7 +18,7 @@ const productsSlice = createSlice({
 })
 
 export const selectProducts = state => state.productList.products;
-export const selecActivetProduct = state => state.productList.activeProduct;
+export const selectActiveProduct = state => state.productList.activeProduct;
 
 export const  {setActiveProduct} = productsSlice.actions;
 

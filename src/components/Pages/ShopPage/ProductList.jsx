@@ -8,12 +8,8 @@ const ProductList = ({products})=> {
      <Grid container className="camerass">
         {
            products ? products.map((product,index) => {
-              const links = {
-                 prevId: products[index - 1]?.id,
-                 nextId: products[index + 1]?.id
-              }
               return (
-               <Grid  xs={4}><CameraCard key={product.name} links={links} {...product}  /></Grid>
+               <Grid  xs={4}><CameraCard key={product.name} {...product}  /></Grid>
               )
            }) : null
         }
