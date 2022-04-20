@@ -1,7 +1,10 @@
 import React from 'react'
+import Photo from '../../../../img/faqImage.webp'
 
 export default function AAA() {
   return (
-    <div>Test HTML</div>
+    <>
+   <img src={ Photo}/> <br/> 
+   </>
   )
 }

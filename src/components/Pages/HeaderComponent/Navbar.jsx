@@ -20,7 +20,7 @@ const Navbar= () => {
    
     <nav className="navbar">
     <div><ul>
-        <li ><Link to="/">Home</Link></li>
+        <li ><Link to="/"   style={{color:'grey'}}>Home</Link></li>
         <li><Link to="/shop">Shop</Link></li>
         <li><Link to="/faq">FAQ</Link></li>
         <li><Link to="/contactUs">Contact Us</Link></li>

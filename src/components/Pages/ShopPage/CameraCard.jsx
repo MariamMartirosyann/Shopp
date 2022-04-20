@@ -12,8 +12,9 @@ const CameraCard=(props)=> {
    
  const hundleClick= ()=> {
   dispatch(setActiveProduct(props));
-  console.log(props);
-  navigate(`/products/${props.id}`);
+  navigate(`/products/${props.id}`,{state: {
+    ...props.links
+  }});
  }
 
  
